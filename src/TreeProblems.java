@@ -68,6 +68,17 @@ public class TreeProblems {
    * 5
    */
   public static <T> void postOrder(Map<T, List<T>> tree, T root) {
+    if (root == null || tree == null || !tree.containsKey(root))
+      return;
+
+    List<T> children = tree.get(root);
+
+    if (children != null) {
+      for (T child : children) {
+        postOrder(tree, child);
+      }
+    }
+    System.out.println(root);
   }
 
   /*
@@ -86,7 +97,19 @@ public class TreeProblems {
    * A null tree should return 0
    */
   public static int sumTree(Node<Integer> root) {
-    return -1;
+    int sum = 0;
+    if (root == null) {
+      return sum;
+    }
+
+    sum += root.value;
+
+    List
+    for (iterable_type iterable_element : iterable) {
+      
+    }
+
+    return sum;
   }
 
   /*

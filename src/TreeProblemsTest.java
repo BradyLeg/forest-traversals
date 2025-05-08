@@ -38,7 +38,7 @@ public class TreeProblemsTest {
   public void testPostOrderNode_SingleNode() {
     Node<Integer> single = new Node<>(42);
     TreeProblems.postOrder(single);
-    assertEquals("A single-node tree should print its value", "42\n", baos.toString());
+    assertEquals("A single-node tree should print its value", "42\r\n", baos.toString());
   }
 
   @Test
@@ -58,7 +58,8 @@ public class TreeProblemsTest {
     node9.children.add(node2);
 
     TreeProblems.postOrder(root);
-    assertEquals("Complex Node tree postorder traversal output is incorrect", "3\n4\n1\n2\n9\n8\n5\n", baos.toString());
+    assertEquals("Complex Node tree postorder traversal output is incorrect", "3\r\n4\r\n1\r\n2\r\n9\r\n8\r\n5\r\n",
+        baos.toString());
   }
 
   // ============================
@@ -86,7 +87,7 @@ public class TreeProblemsTest {
     Map<Integer, List<Integer>> tree = new HashMap<>();
     tree.put(42, List.of());
     TreeProblems.postOrder(tree, 42);
-    assertEquals("A single-node Map tree should print its value", "42\n", baos.toString());
+    assertEquals("A single-node Map tree should print its value", "42\r\n", baos.toString());
   }
 
   @Test
@@ -101,7 +102,8 @@ public class TreeProblemsTest {
     tree.put(2, List.of());
 
     TreeProblems.postOrder(tree, 5);
-    assertEquals("Complex Map tree postorder traversal output is incorrect", "3\n4\n1\n2\n9\n8\n5\n", baos.toString());
+    assertEquals("Complex Map tree postorder traversal output is incorrect", "3\r\n4\r\n1\r\n2\r\n9\r\n8\r\n5\r\n",
+        baos.toString());
   }
 
   // =============================
@@ -112,13 +114,13 @@ public class TreeProblemsTest {
    * Builds an integer tree (using Node<Integer>) with non-sorted node values.
    * Structure:
    * 
-   *             7
-   *          /  |  \
-   *        11   3    2
-   *            / \
-   *           5  -1
-   *                \
-   *                 9
+   * 7
+   * / | \
+   * 11 3 2
+   * / \
+   * 5 -1
+   * \
+   * 9
    * 
    */
   private Node<Integer> buildMixedIntegerTree() {
@@ -219,7 +221,8 @@ public class TreeProblemsTest {
     tree.put(40, List.of());
     tree.put(99, List.of(8));
 
-    assertEquals("findRoot did not return the correct root for the provided example", 10, TreeProblems.findRoot(tree).intValue());
+    assertEquals("findRoot did not return the correct root for the provided example", 10,
+        TreeProblems.findRoot(tree).intValue());
   }
 
   @Test
@@ -232,7 +235,8 @@ public class TreeProblemsTest {
     tree.put(2, List.of());
     tree.put(11, List.of());
 
-    assertEquals("findRoot did not identify the correct root in a mixed-order tree", 13, TreeProblems.findRoot(tree).intValue());
+    assertEquals("findRoot did not identify the correct root in a mixed-order tree", 13,
+        TreeProblems.findRoot(tree).intValue());
   }
 
   // ============================
@@ -289,8 +293,9 @@ public class TreeProblemsTest {
   // ====================================================
   // TeeOutputStream inner class for capturing output
   // ====================================================
-  // Used for testing purposes so you can still see your print statements when debugging
-  // You do not need to modify this 
+  // Used for testing purposes so you can still see your print statements when
+  // debugging
+  // You do not need to modify this
   static class TeeOutputStream extends OutputStream {
     private final OutputStream first;
     private final OutputStream second;

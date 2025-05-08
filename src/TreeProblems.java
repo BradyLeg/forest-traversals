@@ -104,9 +104,11 @@ public class TreeProblems {
 
     sum += root.value;
 
-    List
-    for (iterable_type iterable_element : iterable) {
-      
+    List<Node<Integer>> children = root.children;
+    if (children != null) {
+      for (Node<Integer> child : children) {
+        sum += sumTree(child);
+      }
     }
 
     return sum;
